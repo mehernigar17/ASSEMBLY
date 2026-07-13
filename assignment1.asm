@@ -8,25 +8,16 @@ MAIN PROC
 
     MOV AX, @DATA
     MOV DS, AX
-
-    
-    ;1 NEG AX
-    
+;1 NEG AX
     MOV AX, 8000H
     NEG AX
-
-   
-    ;2 ADD AX,BX
-    
+;2 ADD AX,BX
     MOV AX, 7FFFH
     MOV BX, 0001H
     ADD AX, BX
-
-    ;3 INC AX
-   
+;3 INC AX
     MOV AX, 0FFFFH
     INC AX
-
     MOV AH, 4CH
     INT 21H
 
