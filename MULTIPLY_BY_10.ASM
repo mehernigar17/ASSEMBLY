@@ -1,0 +1,26 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+TEMP DB 0
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    ;10A=8A+2A
+    ;3 TIMES SHIFT=8A
+    ;1 TIMES SHIFT =2A
+    ;8A+2A=10A
+    
+    MOV BL,4
+    MOV TEMP ,BL
+    MOV CL,3
+    SHL BL,CL  ;8A
+    SHL TEMP,1;2A
+    ADD BL,TEMP
+    
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN
+    
