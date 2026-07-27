@@ -1,0 +1,18 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,DX
+    
+    MOV BL,16
+    MOV CL,2
+    SHR BL,CL
+    
+    
+    
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN
