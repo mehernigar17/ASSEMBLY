@@ -1,0 +1,22 @@
+.MODEL STACK
+.STACK 100H
+.DATA
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    ;BYTE MULTI
+    MOV AL,255
+    MOV BL,2
+    MUL BL 
+    
+    ;WORD
+    MOV AX,0FFFH
+    MOV BX,2
+    MUL BX
+    
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN
