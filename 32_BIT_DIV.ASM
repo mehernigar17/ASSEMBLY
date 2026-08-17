@@ -1,0 +1,20 @@
+.MODEL SMALL
+.STACK 256
+.DATA
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    ;BYTE DIV
+    
+   MOV AX,-1250
+   CWD
+   MOV BX,7
+   IDIV BX
+   
+    MOV AH,4CH
+    INT 21H
+    
+    MAIN ENDP
+END MAIN
