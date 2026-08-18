@@ -1,0 +1,39 @@
+.MODEL SMALL
+.STACK 100H
+.DATA
+N DW?
+MSG DB 0AH,0DH, "FACTORIAL=$"
+.CODE
+MAIN PROC
+    MOV AX,@DATA
+    MOV DS,AX
+    CALL INDEC
+    MOV N,AX
+    MOV CX,N
+    MOV AX,1
+    
+    
+    FACT:
+    MUL CX
+    DEC CX
+    CMP CX,0
+    JNZ FACT
+    
+    PUSH AX
+    MOV AH,9
+    LEA DX,MSG
+    INT 21H
+    
+    POP AX
+    CALL OUTDEC 
+    
+    END:
+    MOV AH,4CH
+    INT 21H
+    
+    
+    MAIN ENDP
+INCLUDE INDEC.ASM
+INCLUDE OUTDEC.ASM  
+END MAIN
+    
